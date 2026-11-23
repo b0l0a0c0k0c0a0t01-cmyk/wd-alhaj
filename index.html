@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مهند عبدالرحمن محمدعلى | الموقع الشخصي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #07050d;
+            --bg-card: rgba(20, 14, 34, 0.84);
+            --bg-soft: rgba(157, 78, 221, 0.08);
+            --bg-input: rgba(11, 8, 20, 0.92);
+            --purple-main: #9d4edd;
+            --purple-bright: #c77dff;
+            --purple-neon: #e0aaff;
+            --purple-deep: #5a189a;
+            --purple-glow: rgba(157, 78, 221, 0.36);
+            --text-main: #ffffff;
+            --text-muted: #c4b5fd;
+            --border-soft: rgba(199, 125, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.65;
+        }
+
+        /* خلفية متحركة */
+        .animated-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.52;
+            animation: driftOrb 12s infinite alternate ease-in-out;
+        }
+
+        .orb-1 {
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, #9d4edd, transparent 72%);
+            top: -90px;
+            right: -70px;
+        }
+
+        .orb-2 {
+            width: 440px;
+            height: 440px;
+            background: radial-gradient(circle, #6930c3, transparent 72%);
+            bottom: -120px;
+            left: -90px;
+            animation-delay: -4s;
+        }
+
+        .orb-3 {
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, #c77dff, transparent 72%);
+            top: 42%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.22;
+            animation-duration: 9s;
+        }
+
+        .grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(199, 125, 255, 0.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(199, 125, 255, 0.045) 1px, transparent 1px);
+            background-size: 38px 38px;
+            mask-image: radial-gradient(circle at center, black 35%, transparent 90%);
+        }
+
+        @keyframes driftOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(26px, -22px) scale(1.08); }
+            100% { transform: translate(-20px, 20px) scale(0.96); }
+        }
+
+        body.vibe-boost .orb {
+            opacity: 0.85;
+            filter: blur(58px) saturate(1.45);
+        }
+
+        /* الحاوية العامة */
+        .page-wrap {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px 18px 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* الشريط العلوي */
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            flex-wrap: wrap;
+            background: var(--bg-card);
+            backdrop-filter: blur(18px);
+            border: 1px solid var(--border-soft);
+            border-radius: 20px;
+            padding: 14px 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+        }
+
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-mark {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--purple-bright), var(--purple-deep));
+            color: #fff;
+            font-weight: 900;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px var(--purple-glow);
+        }
+
+        .brand-name {
+            font-size: 1.12rem;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        .brand-sub {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.84rem;
+            font-weight: 700;
+            padding: 6px 11px;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            background: rgba(157, 78, 221, 0.16);
+        }
+
+        .top-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-pill {
+            background: rgba(157, 78, 221, 0.16);
+            border: 1px solid rgba(199, 125, 255, 0.4);
+            color: var(--purple-neon);
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 0.84rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.22s ease;
+        }
+
+        .btn-pill:hover {
+            background: linear-gradient(135deg, var(--purple-bright), var(--purple-main));
+            color: #12061f;
+            transform: translateY(-2px);
+        }
+
+        /* البطاقات والأقسام */
+        .section-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-soft);
+            border-top: 2px solid rgba(199, 125, 255, 0.52);
+            border-radius: 24px;
+            padding: 28px 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 22px 50px rgba(0, 0, 0, 0.65);
+        }
+
+        .section-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(157, 78, 221, 0.16);
+            color: var(--purple-neon);
+            border: 1px solid rgba(199, 125, 255, 0.32);
+            padding: 3px 12px;
+            border-radius: 999px;
+            font-size: 0.76rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .section-title {
+            font-size: 1.45rem;
+            font-weight: 900;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        /* شرائح عرض المشاريع */
+        .projects-slider-shell {
+            background: rgba(10, 7, 20, 0.78);
+            border: 1px solid rgba(199, 125, 255, 0.25);
+            border-radius: 20px;
+            padding: 14px;
+        }
+
+        .projects-viewport {
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .projects-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .project-slide {
+            min-width: 100%;
+            cursor: pointer;
+        }
+
+        .project-image-frame {
+            width: 100%;
+            aspect-ratio: 16 / 8.5;
+            background: linear-gradient(135deg, rgba(90, 24, 154, 0.35), rgba(18, 12, 32, 0.95));
+            border: 1px dashed rgba(199, 125, 255, 0.35);
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.45s ease;
+        }
+
+        .project-slide:hover .project-image-frame img {
+            transform: scale(1.03);
+        }
+
+        .project-placeholder-hint {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 16px;
+            background: rgba(10, 6, 20, 0.55);
+            pointer-events: none;
+        }
+
+        .project-placeholder-hint span {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--purple-neon);
+            background: rgba(20, 14, 34, 0.85);
+            border: 1px solid rgba(199, 125, 255, 0.35);
+            padding: 5px 14px;
+            border-radius: 999px;
+        }
+
+        .project-info-below {
+            padding: 14px 6px 4px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .project-info-below h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .project-info-below p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .project-open-tag {
+            background: rgba(157, 78, 221, 0.18);
+            border: 1px solid rgba(199, 125, 255, 0.38);
+            color: var(--purple-neon);
+            padding: 6px 12px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .project-slide:hover .project-open-tag {
+            background: var(--purple-bright);
+            color: #12061f;
+        }
+
+        .slider-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .slide-nav-btn {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            border: 1px solid rgba(199, 125, 255, 0.35);
+            background: rgba(157, 78, 221, 0.15);
+            color: var(--purple-neon);
+            font-size: 1.25rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .slide-nav-btn:hover {
+            background: var(--purple-bright);
+            color: #12061f;
+        }
+
+        .slide-dots {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .slide-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 999px;
+            border: none;
+            background: rgba(255, 255, 255, 0.22);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .slide-dot.active {
+            width: 26px;
+            background: linear-gradient(90deg, var(--purple-bright), var(--purple-main));
+        }
+
+        /* شبكات الأقسام */
+        .two-col {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .info-box {
+            background: var(--bg-soft);
+            border: 1px solid var(--border-soft);
+            border-radius: 18px;
+            padding: 18px;
+        }
+
+        .info-box h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--purple-neon);
+            margin-bottom: 8px;
+        }
+
+        .info-box p {
+            font-size: 0.9rem;
+            color: #f3e8ff;
+        }
+
+        .editable-slot {
+            min-height: 76px;
+            background: rgba(11, 8, 20, 0.55);
+            border: 1px dashed rgba(199, 125, 255, 0.28);
+            border-radius: 12px;
+            padding: 12px;
+            margin-top: 8px;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        .chips-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .chip {
+            background: rgba(157, 78, 221, 0.16);
+            border: 1px solid rgba(199, 125, 255, 0.32);
+            color: #fff;
+            padding: 6px 13px;
+            border-radius: 999px;
+            font-size: 0.84rem;
+            font-weight: 700;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .service-card {
+            background: var(--bg-soft);
+            border: 1px solid var(--border-soft);
+            border-radius: 18px;
+            padding: 18px;
+            transition: transform 0.22s ease, border-color 0.22s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--purple-bright);
+        }
+
+        .service-card h3 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--purple-neon);
+            margin-bottom: 6px;
+        }
+
+        .service-card p {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+        }
+
+        /* زر تحميل السيرة الذاتية (صورة) */
+        .cv-action-bar {
+            margin-top: 22px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-soft);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary,
+        .btn-download-cv {
+            background: linear-gradient(135deg, var(--purple-bright) 0%, var(--purple-main) 100%);
+            color: #12061f;
+            border: none;
+            border-radius: 14px;
+            padding: 13px 22px;
+            font-size: 0.96rem;
+            font-weight: 900;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+            box-shadow: 0 10px 26px -6px var(--purple-glow);
+        }
+
+        .btn-primary:hover,
+        .btn-download-cv:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px -4px rgba(199, 125, 255, 0.5);
+        }
+
+        /* قسم التواصل في آخر الصفحة */
+        .contact-footer-box {
+            text-align: center;
+            padding: 12px 6px;
+        }
+
+        .contact-footer-box h2 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .contact-footer-box p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 0.94rem;
+        }
+
+        /* القوائم المنبثقة (Modals) */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 3, 12, 0.8);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            z-index: 60;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .modal-backdrop.open {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-box {
+            width: 100%;
+            max-width: 480px;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: #140d24;
+            border: 1px solid rgba(199, 125, 255, 0.36);
+            border-top: 3px solid var(--purple-bright);
+            border-radius: 22px;
+            padding: 24px 20px;
+            position: relative;
+            box-shadow: 0 25px 65px rgba(0, 0, 0, 0.85);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            border: 1px solid rgba(199, 125, 255, 0.28);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--purple-bright);
+            color: #12061f;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 900;
+            margin-bottom: 6px;
+            padding-left: 34px;
+        }
+
+        .modal-sub {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #f3e8ff;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: var(--bg-input);
+            border: 1px solid var(--border-soft);
+            border-radius: 12px;
+            padding: 12px 14px;
+            color: #fff;
+            font-size: 0.92rem;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--purple-bright);
+            box-shadow: 0 0 0 3px rgba(157, 78, 221, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 105px;
+        }
+
+        .status-msg {
+            margin-top: 12px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--purple-neon);
+        }
+
+        .loader {
+            display: none;
+            width: 19px;
+            height: 19px;
+            border: 3px solid rgba(18, 6, 31, 0.25);
+            border-top-color: #12061f;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .two-col,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-card {
+                padding: 22px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- خلفية متحركة -->
+    <div class="animated-bg" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-bg"></div>
+    </div>
+
+    <div class="page-wrap">
+
+        <!-- الشريط العلوي -->
+        <header class="topbar">
+            <div class="brand-box">
+                <div class="brand-mark">م</div>
+                <div>
+                    <div class="brand-name">مهند عبدالرحمن محمدعلى</div>
+                    <div class="brand-sub">مساحة شخصية تفاعلية</div>
+                </div>
+            </div>
+
+            <nav class="nav-links" aria-label="أقسام الصفحة">
+                <a href="#projects-section">المشاريع</a>
+                <a href="#cv-section">السيرة والتخرج</a>
+                <a href="#skills-section">المهارات</a>
+                <a href="#services-section">الخدمات</a>
+            </nav>
+
+            <div class="top-actions">
+                <button type="button" class="btn-pill" id="vibe-toggle" title="تغيير نبضة الإضاءة">⚡ نبضة</button>
+                <button type="button" class="btn-pill" id="open-info-modal">✦ معلوماتي</button>
+            </div>
+        </header>
+
+        <!-- 1. عرض المشاريع على شكل شرائح صور متحركة مع المعلومات أسفل الصور -->
+        <section class="section-card" id="projects-section">
+            <div class="section-head">
+                <div>
+                    <span class="section-badge">معرض المشاريع والبرامج</span>
+                    <h1 class="section-title">المشاريع</h1>
+                </div>
+                <p class="section-desc">اضغط على أي شريحة لعرض تفاصيل البرنامج أو المشروع</p>
+            </div>
+
+            <div class="projects-slider-shell">
+                <div class="projects-viewport">
+                    <div class="projects-track" id="projects-track"></div>
+                </div>
+
+                <div class="slider-footer">
+                    <button type="button" class="slide-nav-btn" id="proj-prev" aria-label="المشروع السابق">‹</button>
+                    <div class="slide-dots" id="proj-dots"></div>
+                    <button type="button" class="slide-nav-btn" id="proj-next" aria-label="المشروع التالي">›</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. السيرة الذاتية والتخرج وزر تحميل الـ CV (صورة) -->
+        <section class="section-card" id="cv-section">
+            <div class="section-head">
+                <div>
+                    <span class="section-badge">الملف الشخصي والأكاديمي</span>
+                    <h2 class="section-title">السيرة الذاتية والتخرج</h2>
+                </div>
+            </div>
+
+            <div class="two-col">
+                <div class="info-box">
+                    <h3>السيرة الذاتية</h3>
+                    <p>مساحة مخصصة لنبذة السيرة الذاتية والخبرات العملية.</p>
+                    <div class="editable-slot" id="cv-summary-slot">
+                        أضف هنا ملخص سيرتك الذاتية وخبراتك العملية...
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>التخرج والمؤهل</h3>
+                    <p>مساحة مخصصة لبيانات التخرج والدرجة العلمية ومشروع التخرج.</p>
+                    <div class="editable-slot" id="graduation-slot">
+                        أضف هنا بيانات التخرج والجامعة ومشروع التخرج...
+                    </div>
+                </div>
+            </div>
+
+            <div class="cv-action-bar">
+                <p class="section-desc">تحميل نسخة السيرة الذاتية بصيغة صورة من ملفات المشروع:</p>
+                <!-- غيّر مسار الصورة (cv.png) حسب اسم صورة الـ CV التي سترفعها في مجلد المشروع -->
+                <a href="cv.png" download="CV-Mohand-Abdelrhman.png" class="btn-download-cv" id="download-cv-btn">
+                    <span>⬇ تحميل الـ CV (صورة)</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 3. المهارات -->
+        <section class="section-card" id="skills-section">
+            <div class="section-head">
+                <div>
+                    <span class="section-badge">القدرات التقنية والعملية</span>
+                    <h2 class="section-title">المهارات</h2>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>قائمة المهارات</h3>
+                <p>يمكنك إضافة أو تعديل المهارات بسهولة من مصفوفة <code>skillsList</code> داخل الكود.</p>
+                <div class="chips-wrap" id="skills-container"></div>
+            </div>
+        </section>
+
+        <!-- 4. الخدمات والتفاصيل الإضافية -->
+        <section class="section-card" id="services-section">
+            <div class="section-head">
+                <div>
+                    <span class="section-badge">ما أقدمه والتفاصيل</span>
+                    <h2 class="section-title">الخدمات والتفاصيل</h2>
+                </div>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>خدمة 1</h3>
+                    <p>مساحة مخصصة لبيان تفاصيل الخدمة الأولى.</p>
+                </div>
+                <div class="service-card">
+                    <h3>خدمة 2</h3>
+                    <p>مساحة مخصصة لبيان تفاصيل الخدمة الثانية.</p>
+                </div>
+                <div class="service-card">
+                    <h3>خدمة 3</h3>
+                    <p>مساحة مخصصة لبيان تفاصيل الخدمة الثالثة.</p>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 16px;">
+                <h3>تفاصيل إضافية</h3>
+                <div class="editable-slot" id="extra-details-slot">
+                    مساحة مخصصة لأي تفاصيل أخرى ترغب في إضافتها هنا...
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. آخر الصفحة: زر التواصل الذي يفتح قائمة منبثقة -->
+        <section class="section-card" id="contact-section">
+            <div class="contact-footer-box">
+                <span class="section-badge">تواصل مباشر</span>
+                <h2>جاهز للتواصل؟</h2>
+                <p>اضغط على زر التواصل لفتح نافذة إرسال الرسالة مباشرة إلى بريدي الإلكتروني.</p>
+                <button type="button" class="btn-primary" id="open-contact-modal">
+                    <span>✉️ تواصل معي الآن</span>
+                </button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- قائمة منبثقة 1: معلوماتي (مهند عبدالرحمن محمدعلى) -->
+    <div class="modal-backdrop" id="info-modal" aria-hidden="true">
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="info-modal-title">
+            <button type="button" class="modal-close" data-close-modal="info-modal" aria-label="إغلاق">✕</button>
+            <span class="section-badge">نبذة شخصية</span>
+            <h2 class="modal-title" id="info-modal-title">مهند عبدالرحمن محمدعلى</h2>
+            <p class="modal-sub">مطور برمجيات ومواقع • مهتم بالشبكات والأمن السيبراني والأنظمة</p>
+            <div class="editable-slot" id="about-popup-slot">
+                أهلاً بك في موقعي الشخصي! أعمل على تطوير البرمجيات والمواقع والأنظمة وبناء تجارب رقمية تفاعلية، وهذه النافذة مخصصة لعرض نبذتي ومعلوماتي.
+            </div>
+        </div>
+    </div>
+
+    <!-- قائمة منبثقة 2: تفاصيل المشروع / البرنامج عند الضغط عليه -->
+    <div class="modal-backdrop" id="project-modal" aria-hidden="true">
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="proj-modal-title">
+            <button type="button" class="modal-close" data-close-modal="project-modal" aria-label="إغلاق">✕</button>
+            <span class="section-badge" id="proj-modal-tag">تفاصيل المشروع</span>
+            <h2 class="modal-title" id="proj-modal-title"></h2>
+            <p class="modal-sub" id="proj-modal-summary"></p>
+            <div class="editable-slot" id="proj-modal-details"></div>
+        </div>
+    </div>
+
+    <!-- قائمة منبثقة 3: نموذج التواصل (الاسم، البريد، الموضوع، الرسالة) -->
+    <div class="modal-backdrop" id="contact-modal" aria-hidden="true">
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+            <button type="button" class="modal-close" data-close-modal="contact-modal" aria-label="إغلاق">✕</button>
+            <span class="section-badge">إرسال رسالة</span>
+            <h2 class="modal-title" id="contact-modal-title">تواصل مع مهند عبدالرحمن محمدعلى</h2>
+            <p class="modal-sub">سيتم إرسال رسالتك إلى البريد مع إمكانية الرد المباشر على بريدك.</p>
+
+            <form id="popup-contact-form">
+                <input type="hidden" name="access_key" value="D1ccd508-356f-4617-8880-f1b2b5cf4762">
+                <input type="hidden" name="subject" id="popup-subject" value="رسالة جديدة من الموقع الشخصي">
+                <input type="hidden" name="from_name" id="popup-from-name">
+                <input type="hidden" name="replyto" id="popup-replyto">
+                <input type="checkbox" name="botcheck" style="display: none;">
+
+                <div class="form-group">
+                    <label for="c-name">الاسم</label>
+                    <input type="text" id="c-name" name="name" placeholder="اكتب اسمك..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="c-email">البريد الإلكتروني</label>
+                    <input type="email" id="c-email" name="email" placeholder="example@gmail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="c-topic">الموضوع</label>
+                    <input type="text" id="c-topic" placeholder="موضوع الرسالة..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="c-message">الرسالة</label>
+                    <textarea id="c-message" name="message" placeholder="اكتب رسالتك هنا..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary" id="c-submit-btn" style="width: 100%;">
+                    <span id="c-btn-text">إرسال الرسالة</span>
+                    <div class="loader" id="c-btn-loader"></div>
+                </button>
+
+                <div class="status-msg" id="c-status-msg"></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            /* =========================================================
+               1) مساحات المشاريع الثلاث (ضع مسارات صورك وتفاصيلك عند الإضافة)
+               مثال لصورة داخل مجلد المشروع: image: 'projects/proj1.jpg'
+            ========================================================= */
+            const projectsData = [
+                {
+                    image: '', // ضع رابط أو مسار صورة المشروع الأول هنا
+                    tag: 'مشروع / برنامج 1',
+                    title: 'مساحة المشروع الأول',
+                    shortDesc: 'معلومات مختصرة أسفل صورة المشروع الأول (قابلة للتعديل).',
+                    details: 'تفاصيل البرنامج أو المشروع الأول ستظهر هنا عند الضغط على الشريحة.'
+                },
+                {
+                    image: '', // ضع رابط أو مسار صورة المشروع الثاني هنا
+                    tag: 'مشروع / برنامج 2',
+                    title: 'مساحة المشروع الثاني',
+                    shortDesc: 'معلومات مختصرة أسفل صورة المشروع الثاني (قابلة للتعديل).',
+                    details: 'تفاصيل البرنامج أو المشروع الثاني ستظهر هنا عند الضغط على الشريحة.'
+                },
+                {
+                    image: '', // ضع رابط أو مسار صورة المشروع الثالث هنا
+                    tag: 'مشروع / برنامج 3',
+                    title: 'مساحة المشروع الثالث',
+                    shortDesc: 'معلومات مختصرة أسفل صورة المشروع الثالث (قابلة للتعديل).',
+                    details: 'تفاصيل البرنامج أو المشروع الثالث ستظهر هنا عند الضغط على الشريحة.'
+                }
+            ];
+
+            /* =========================================================
+               2) قائمة المهارات (عدّل أو أضف مهاراتك هنا)
+            ========================================================= */
+            const skillsList = [
+                'مهارة 1',
+                'مهارة 2',
+                'مهارة 3',
+                'مهارة 4'
+            ];
+
+            // عرض المهارات
+            const skillsContainer = document.getElementById('skills-container');
+            if (skillsContainer) {
+                skillsContainer.innerHTML = skillsList
+                    .map(skill => `<span class="chip">${skill}</span>`)
+                    .join('');
+            }
+
+            // بناء شرائح المشاريع المتحركة
+            const track = document.getElementById('projects-track');
+            const dotsWrap = document.getElementById('proj-dots');
+            const prevBtn = document.getElementById('proj-prev');
+            const nextBtn = document.getElementById('proj-next');
+            let activeProjIndex = 0;
+            let projInterval = null;
+
+            function openProjectModal(index) {
+                const item = projectsData[index];
+                if (!item) return;
+                document.getElementById('proj-modal-tag').textContent = item.tag;
+                document.getElementById('proj-modal-title').textContent = item.title;
+                document.getElementById('proj-modal-summary').textContent = item.shortDesc;
+                document.getElementById('proj-modal-details').textContent = item.details;
+                openModalById('project-modal');
+            }
+
+            function renderProjectsSlider() {
+                if (!track || !dotsWrap) return;
+
+                track.innerHTML = projectsData.map((proj, idx) => `
+                    <div class="project-slide" data-proj-index="${idx}" title="اضغط لعرض التفاصيل">
+                        <div class="project-image-frame">
+                            ${proj.image
+                                ? `<img src="${proj.image}" alt="${proj.title}">`
+                                : `<div class="project-placeholder-hint"><span>مساحة صورة المشروع (${idx + 1}) — اضغط للتفاصيل</span></div>`
+                            }
+                        </div>
+                        <div class="project-info-below">
+                            <div>
+                                <h3>${proj.title}</h3>
+                                <p>${proj.shortDesc}</p>
+                            </div>
+                            <span class="project-open-tag">تفاصيل المشروع ↗</span>
+                        </div>
+                    </div>
+                `).join('');
+
+                dotsWrap.innerHTML = projectsData.map((_, idx) => `
+                    <button type="button" class="slide-dot ${idx === 0 ? 'active' : ''}" data-dot="${idx}" aria-label="مشروع ${idx + 1}"></button>
+                `).join('');
+
+                track.querySelectorAll('.project-slide').forEach(slide => {
+                    slide.addEventListener('click', () => {
+                        const idx = Number(slide.getAttribute('data-proj-index'));
+                        openProjectModal(idx);
+                    });
+                });
+
+                dotsWrap.querySelectorAll('.slide-dot').forEach(dot => {
+                    dot.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        goToProject(Number(dot.getAttribute('data-dot')));
+                        startProjAuto();
+                    });
+                });
+
+                goToProject(0);
+            }
+
+            function goToProject(idx) {
+                if (!track || !projectsData.length) return;
+                activeProjIndex = (idx + projectsData.length) % projectsData.length;
+                track.style.transform = `translateX(${activeProjIndex * 100}%)`;
+                dotsWrap.querySelectorAll('.slide-dot').forEach((d, i) => {
+                    d.classList.toggle('active', i === activeProjIndex);
+                });
+            }
+
+            function startProjAuto() {
+                stopProjAuto();
+                if (projectsData.length > 1) {
+                    projInterval = setInterval(() => {
+                        goToProject(activeProjIndex + 1);
+                    }, 4500);
+                }
+            }
+
+            function stopProjAuto() {
+                if (projInterval) {
+                    clearInterval(projInterval);
+                    projInterval = null;
+                }
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    goToProject(activeProjIndex - 1);
+                    startProjAuto();
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    goToProject(activeProjIndex + 1);
+                    startProjAuto();
+                });
+            }
+
+            renderProjectsSlider();
+            startProjAuto();
+
+            // زر نبضة الخلفية التفاعلية
+            const vibeBtn = document.getElementById('vibe-toggle');
+            if (vibeBtn) {
+                vibeBtn.addEventListener('click', () => {
+                    document.body.classList.toggle('vibe-boost');
+                    goToProject(activeProjIndex + 1);
+                });
+            }
+
+            // التحكم بالقوائم المنبثقة
+            function openModalById(id) {
+                const modal = document.getElementById(id);
+                if (!modal) return;
+                modal.classList.add('open');
+                modal.setAttribute('aria-hidden', 'false');
+            }
+
+            function closeModalById(id) {
+                const modal = document.getElementById(id);
+                if (!modal) return;
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+            }
+
+            document.getElementById('open-info-modal').addEventListener('click', () => openModalById('info-modal'));
+            document.getElementById('open-contact-modal').addEventListener('click', () => {
+                document.getElementById('c-status-msg').textContent = '';
+                openModalById('contact-modal');
+            });
+
+            document.querySelectorAll('[data-close-modal]').forEach(btn => {
+                btn.addEventListener('click', () => closeModalById(btn.getAttribute('data-close-modal')));
+            });
+
+            document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+                backdrop.addEventListener('click', (e) => {
+                    if (e.target === backdrop) closeModalById(backdrop.id);
+                });
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.modal-backdrop.open').forEach(m => closeModalById(m.id));
+                }
+            });
+
+            // إرسال نموذج التواصل المنبثق عبر Web3Forms
+            const contactForm = document.getElementById('popup-contact-form');
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const nameVal = document.getElementById('c-name').value.trim();
+                const emailVal = document.getElementById('c-email').value.trim();
+                const topicVal = document.getElementById('c-topic').value.trim();
+
+                document.getElementById('popup-from-name').value = nameVal;
+                document.getElementById('popup-replyto').value = emailVal;
+                document.getElementById('popup-subject').value = `رسالة من ${nameVal} | ${topicVal}`;
+
+                const submitBtn = document.getElementById('c-submit-btn');
+                const btnText = document.getElementById('c-btn-text');
+                const loader = document.getElementById('c-btn-loader');
+                const statusMsg = document.getElementById('c-status-msg');
+
+                submitBtn.disabled = true;
+                btnText.textContent = 'جاري الإرسال...';
+                loader.style.display = 'inline-block';
+                statusMsg.textContent = '';
+
+                try {
+                    const res = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: new FormData(contactForm)
+                    });
+                    const data = await res.json();
+
+                    if (data.success) {
+                        statusMsg.textContent = 'تم إرسال رسالتك بنجاح! شكراً لتواصلك.';
+                        contactForm.reset();
+                    } else {
+                        statusMsg.textContent = 'تعذر الإرسال: ' + (data.message || 'تحقق من إعدادات الإرسال');
+                    }
+                } catch (err) {
+                    statusMsg.textContent = 'حدث خطأ في الاتصال بالخادم، حاول مرة أخرى.';
+                } finally {
+                    submitBtn.disabled = false;
+                    btnText.textContent = 'إرسال الرسالة';
+                    loader.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
